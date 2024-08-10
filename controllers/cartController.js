@@ -2,7 +2,6 @@ const cartModel = require("../models/cartModel");
 
 exports.addToCart = async (req, res) => {
   const { userId, productId, quantity } = req.body;
-
   try {
     const cartItemId = await cartModel.addToCart(userId, productId, quantity);
     res.status(201).json({ id: cartItemId });
